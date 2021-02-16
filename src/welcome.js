@@ -1,4 +1,5 @@
-module.exports = (client) => {
+module.exports = (args) => {
+    const client = args.client;
     client.on('guildMemberAdd', async (member) => {
         const channel = await client.channels.cache.find(channel => (channel.name === 'welcome' && channel.type !== 'category'));
 

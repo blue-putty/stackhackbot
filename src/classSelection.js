@@ -6,11 +6,13 @@ const classEmojis = [
 
 let channel;
 
-module.exports = async (client, Discord) => {
+module.exports = async (args) => {
+    // const Discord = args.Discord;
+    const client = args.client;
+
     channel = await client.channels.cache.find(channel => channel.name === 'class-selection');
 
     client.on('messageReactionAdd', (reaction, user) => {
-        console.log(reaction);
         reactionHandler(reaction, user, 'add');
     });
 
@@ -35,7 +37,8 @@ module.exports = async (client, Discord) => {
 
 }
 
-module.exports.createMessage = async (client, Discord) => {
+module.exports.createMessage = async (args) => {
+    const Discord = args.Discord;
     const message = await sendMessage();
 
     classEmojis.forEach(cls => {

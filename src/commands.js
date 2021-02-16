@@ -1,7 +1,9 @@
 const classMessage = require('./classSelection');
 
-module.exports = (client, Discord) => {
-    classMessage(client, Discord);
+module.exports = (args) => {
+    const Discord = args.Discord;
+    const client = args.client;
+    classMessage(args);
 
     const PREFIX = "$";
 
@@ -59,7 +61,7 @@ module.exports = (client, Discord) => {
         }
 
         function csc() {
-            classMessage.createMessage(client, Discord);
+            classMessage.createMessage(args);
         }
 
         function rules(obj) {

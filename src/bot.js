@@ -12,8 +12,8 @@ client.login(process.env.DISCORDJS_BOT_TOKEN);
 client.on('ready', () => {
     console.log(`${client.user.username} has logged in successfully.`);
 
-    welcome(client);
-    commands(client, Discord);
+    welcome({client: client});
+    commands({client: client, Discord: Discord});
 
     client.user.setPresence({
         activity: {
