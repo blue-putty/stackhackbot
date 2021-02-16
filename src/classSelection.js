@@ -25,7 +25,7 @@ module.exports = async (client, Discord) => {
     function reactionHandler(reaction, user, action) {
         if (user.bot) return;
 
-        if (reaction.message.id === message.id) {
+        if (reaction.message.channel === channel) {
             const name = reaction.emoji.name;
             const member = reaction.message.guild.members.cache.get(user.id);
             for (let i = 0; i < classEmojis.length; i++) {
