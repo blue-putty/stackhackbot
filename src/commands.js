@@ -66,11 +66,11 @@ module.exports = (args) => {
 
         function rules(obj) {
             const ruleList = [
-                'Treat everyone with respect.Absolutely no harassment, witch hunting, sexism, racism, or hate speech will be tolerated.',
-                'No NSFW or obscene content.This includes text, images, or links featuring nudity, sex, hard violence, or other graphically disturbing content.',
-                'No spam (or self - promotion(includes random @everyone mentions) server invites, advertisements, etc) without permission from a staff member.This includes DMing fellow members.',
+                'Treat everyone with respect. Absolutely no harassment, witch hunting, sexism, racism, or hate speech will be tolerated.',
+                'No NSFW or obscene content. This includes text, images, or links featuring nudity, sex, hard violence, or other graphically disturbing content.',
+                'No spam (includes random @everyone mentions) or self - promotion server invites, advertisements, etc) without permission from a staff member. This includes DMing fellow members.',
                 'If you see something against the rules or something that makes you feel unsafe, let staff know. We want this server to be a welcoming space!',
-                'The teachers have sole discretion to punish infractions.We will be as fair as possible.',
+                'The teachers have sole discretion to punish infractions. We will be as fair as possible.',
                 'Have fun!',
             ]
             const channel = obj.message.channel;
