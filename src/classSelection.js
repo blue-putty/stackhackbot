@@ -1,20 +1,16 @@
+const classEmojis = [
+    { emoji: '☕', roleId: '810915137103855638', desc: 'Java' },
+    { emoji: '🧡', roleId: '810915170670084097', desc: 'Scratch' },
+    { emoji: '🐍', roleId: '810915157919924265', desc: 'Python' }
+]
+
+let channel;
+
 module.exports = async (client, Discord) => {
-    const channel = await client.channels.cache.find(channel => channel.name === 'class-selection');
+    channel = await client.channels.cache.find(channel => channel.name === 'class-selection');
 
-    const classEmojis = [
-        { emoji: '☕', roleId: '810915137103855638', desc: 'Java' },
-        { emoji: '🧡', roleId: '810915170670084097', desc: 'Scratch' },
-        { emoji: '🐍', roleId: '810915157919924265', desc: 'Python' }
-    ]
-
-    const message = await createMessage();
-
-    classEmojis.forEach(cls => {
-        message.react(cls.emoji);
-    });
-
-    
     client.on('messageReactionAdd', (reaction, user) => {
+        console.log(reaction);
         reactionHandler(reaction, user, 'add');
     });
 
@@ -24,7 +20,6 @@ module.exports = async (client, Discord) => {
 
     function reactionHandler(reaction, user, action) {
         if (user.bot) return;
-
         if (reaction.message.channel === channel) {
             const name = reaction.emoji.name;
             const member = reaction.message.guild.members.cache.get(user.id);
@@ -36,9 +31,19 @@ module.exports = async (client, Discord) => {
                 }
             }
         }
-    };
+    }
 
-    async function createMessage() {
+}
+
+module.exports.createMessage = async (client, Discord) => {
+    const message = await sendMessage();
+
+    classEmojis.forEach(cls => {
+        message.react(cls.emoji);
+    });
+
+
+    async function sendMessage() {
         let description = 'Please react to the courses you want to take! \n \n Key:';
         classEmojis.forEach(cls => {
             description += `\n ${cls.emoji}  ${cls.desc}`

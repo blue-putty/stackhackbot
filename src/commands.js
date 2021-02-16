@@ -1,6 +1,8 @@
 const classMessage = require('./classSelection');
 
 module.exports = (client, Discord) => {
+    classMessage(client, Discord);
+
     const PREFIX = "$";
 
     client.on('message', (message) => {
@@ -17,6 +19,7 @@ module.exports = (client, Discord) => {
             }
             catch (e) {
                 if (e instanceof TypeError) {
+                    console.log(e);
                     message.channel.send(`${message.author} I'm sorry. That's not a command I have.`)
                 } else {
                     message.channel.send(`${message.author} I'm sorry. There was an error carrying out the command ${CMD_NAME}`);
@@ -55,8 +58,8 @@ module.exports = (client, Discord) => {
             message.channel.send(`All hail the master mind`)
         }
 
-        function classSelection() {
-            classMessage(client, Discord);
+        function csc() {
+            classMessage.createMessage(client, Discord);
         }
 
         function rules(obj) {
@@ -78,7 +81,7 @@ module.exports = (client, Discord) => {
 
         return {
             rules: rules,
-            classSelection, classSelection,
+            classSelection: csc,
             nithin: nithin,
             anish: nithin,
             help: help,
