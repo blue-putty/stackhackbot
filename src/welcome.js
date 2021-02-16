@@ -25,5 +25,15 @@ module.exports = (args) => {
         const message = `${greeting}, <@${member.id}>! \n` +
             "It's a pleasure to have you here. Please check my DM to you so I can get you started!";
         channel.send(message);
+
+        member.send(`${greeting}, <@${member.id}>! \n`);
+        member.send("What's your first name?");
+
+        client.on('message', msg => {
+            if (msg.channel.type == "dm") {
+                msg.author.send("Thanks!");
+                return;
+            }
+        });
     });
 }

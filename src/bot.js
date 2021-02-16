@@ -23,7 +23,13 @@ client.on('ready', () => {
         status: 'idle'
     })
 
-    // client.emit('guildMemberAdd', client.user);
+    // newUserTest();
+
+    async function newUserTest() {
+        // console.log(client.users.fetch('272766623029395456'));
+        const wizzy = await client.users.fetch('272766623029395456');
+        client.emit('guildMemberAdd', wizzy);
+    }
 })
 
 
