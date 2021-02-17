@@ -36,6 +36,8 @@ client.on('ready', () => {
                 message.member.setNickname(name);
                 message.member.roles.add('809954412277661737');
 
+                const channel = await client.channels.cache.find(channel => channel.name === 'class-selection');
+                message.channel.send(`Please check out ${channel} to sign up for your classes`);
             } else {
                 commands.commandHandler({ client: client, Discord: Discord, message: message });
             }
@@ -45,7 +47,7 @@ client.on('ready', () => {
         }
     });
 
-    // newUserTest();
+    newUserTest();
 
     async function newUserTest() {
         // console.log(client.users.fetch('272766623029395456'));
