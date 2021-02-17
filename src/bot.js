@@ -32,10 +32,10 @@ client.on('ready', () => {
             if (lastMessage === "What's your first name? This will be your name on the server.") {
                 const name = lastMessages.first().content;
                 message.channel.send(`Thanks! You will now be renamed to ${name}.`);
-                // client.guilds.cache.find(message.user).setNickname("FFF");
-                console.log(message.member);
+                
                 message.member.setNickname(name);
-                // client.guilds.cache.get(message.author.id).setNickname(name);
+                message.member.roles.add('809954412277661737');
+
             } else {
                 commands.commandHandler({ client: client, Discord: Discord, message: message });
             }
@@ -45,7 +45,7 @@ client.on('ready', () => {
         }
     });
 
-    newUserTest();
+    // newUserTest();
 
     async function newUserTest() {
         // console.log(client.users.fetch('272766623029395456'));

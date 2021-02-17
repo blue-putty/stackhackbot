@@ -37,7 +37,8 @@ const commands = (function () {
     function nuke(obj) {
         const message = obj.message;
         if (!message.member.hasPermission('ADMINISTRATOR')) {
-            message.channel.send('Missing permissions.')
+            message.channel.send('Missing permissions.');
+            return;
         }
 
         message.channel.clone().then(channel => {
