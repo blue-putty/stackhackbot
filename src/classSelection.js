@@ -58,6 +58,12 @@ module.exports.createMessage = async (args) => {
             .setDescription(description)
             .setFooter("You may always remove the reaction if you don't like the course");
 
-        return await channel.send(message);
+        try {
+            return await channel.send(message);
+        } catch (e) {
+            if (e) {
+                channel = await client.channels.cache.find(channel => channel.name === 'class-selection');
+            }
+        }
     }
 }

@@ -29,9 +29,8 @@ function commandHandler(args) {
             }
         }
     }
-
-
 }
+
 
 const commands = (function () {
     function nuke(obj) {
@@ -64,7 +63,7 @@ const commands = (function () {
     }
 
     function csc() {
-        classMessage.createMessage(args);
+        classMessage.createMessage({ client: client, Discord: Discord });
     }
 
     function rules(obj) {
