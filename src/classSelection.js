@@ -1,7 +1,8 @@
 const classEmojis = [
     { emoji: '☕', roleId: '810915137103855638', desc: 'Java' },
     { emoji: '🧡', roleId: '810915170670084097', desc: 'Scratch' },
-    { emoji: '🐍', roleId: '810915157919924265', desc: 'Python' }
+    { emoji: '🐍', roleId: '810915157919924265', desc: 'Python' },
+    { emoji: '🕸️', roleId: '813512453451022387', desc: 'WebDev' }
 ]
 
 let channel;
